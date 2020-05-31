@@ -21,19 +21,30 @@ package org.evosuite.intellij;
 
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.components.BaseComponent;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.jps.service.SharedThreadPool;
 
 /**
  *  Entry point for the IntelliJ plugin for when IntelliJ starts
  *
  * Created by arcuri on 11/1/14.
  */
-public class ApplicationRegistration implements ApplicationComponent {
+public class ApplicationRegistration implements BaseComponent {
     @Override
     public void initComponent() {
-        EvoAction evo = new EvoAction();
+        ApplicationManager.getApplication().invokeLater(() -> {
+            try {
+                SharedThreadPool.getInstance().execute(this::registerActions);
+            } catch (Exception e) {
+            }
+        });
 
+    }
+
+    private void registerActions() {
+        EvoAction evo = new EvoAction();
 
         // Gets an instance of the WindowMenu action group.
         //DefaultActionGroup windowM = (DefaultActionGroup) am.getAction("WindowMenu");
@@ -59,6 +70,6 @@ public class ApplicationRegistration implements ApplicationComponent {
     @NotNull
     @Override
     public String getComponentName() {
-        return "EvoSuite Plugin";
+        return "EvoSuite";
     }
 }

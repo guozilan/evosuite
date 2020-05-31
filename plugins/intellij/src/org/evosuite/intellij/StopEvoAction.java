@@ -34,11 +34,10 @@ public class StopEvoAction extends AnAction {
 
     public StopEvoAction(AsyncGUINotifier notifier){
         super("Stop EvoSuite");
-        getTemplatePresentation().setIcon(AllIcons.Actions.CloseNew);
-        getTemplatePresentation().setHoveredIcon(AllIcons.Actions.CloseNewHovered);
+        getTemplatePresentation().setIcon(AllIcons.Actions.Close);
+        getTemplatePresentation().setHoveredIcon(AllIcons.Actions.CloseHovered);
         this.notifier = notifier;
     }
-
     @Override
     public void actionPerformed(AnActionEvent e) {
         EvoSuiteExecutor.getInstance().stopRun();

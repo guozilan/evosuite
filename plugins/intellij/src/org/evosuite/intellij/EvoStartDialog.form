@@ -6,11 +6,11 @@
     <rowspec value="center:40px:noGrow"/>
     <colspec value="fill:391px:grow"/>
     <constraints>
-      <xy x="48" y="54" width="651" height="333"/>
+      <xy x="48" y="54" width="651" height="335"/>
     </constraints>
     <properties>
-      <minimumSize width="540" height="300"/>
-      <preferredSize width="570" height="300"/>
+      <minimumSize width="570" height="335"/>
+      <preferredSize width="570" height="335"/>
     </properties>
     <border type="bevel-lowered" title="EvoSuite Options">
       <font size="20"/>

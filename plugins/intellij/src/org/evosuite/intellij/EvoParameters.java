@@ -84,7 +84,7 @@ public class EvoParameters {
         executionMode = p.getValue(EXECUTION_MODE,EXECUTION_MODE_MVN);
 
         guiWidth = p.getInt(GUI_DIALOG_WIDTH, 570);
-        guiHeight = p.getInt(GUI_DIALOG_HEIGHT, 300);
+        guiHeight = p.getInt(GUI_DIALOG_HEIGHT, 335);
     }
 
     public void save(Project project){
